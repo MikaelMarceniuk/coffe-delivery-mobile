@@ -1,7 +1,7 @@
 import styled, { useTheme } from 'styled-components/native'
 import Navbar from '../components/navbar'
-import { View, Text } from 'react-native'
 import SearchInput from '../components/searchInput'
+import CoffeShowcaseList from '../components/coffeShowcaseList'
 
 const Container = styled.View`
   flex: 1;
@@ -21,7 +21,7 @@ const ImageBg = styled.ImageBackground`
 
 const IntroContainer = styled.View`
   width: 310px;
-  margin: 20px auto 0px;
+  margin: 20px auto 25px;
 
   gap: 16px;
 `
@@ -37,10 +37,13 @@ const CatalogScreen: React.FC = () => {
     <Container>
       <ImageBg />
       <Navbar />
+
       <IntroContainer>
         <Intro>Encontre o café perfeito para qualquer hora do dia</Intro>
         <SearchInput />
       </IntroContainer>
+
+      <CoffeShowcaseList />
     </Container>
   )
 }
