@@ -1,23 +1,31 @@
 import { registerRootComponent } from 'expo'
-import { StatusBar } from 'expo-status-bar'
-import { StyleSheet, Text, View } from 'react-native'
+import { useFonts } from 'expo-font'
+import { Roboto_400Regular, Roboto_700Bold } from '@expo-google-fonts/roboto'
+import { Baloo2_700Bold } from '@expo-google-fonts/baloo-2'
+import { ThemeProvider } from 'styled-components/native'
+import defaultTheme from './themes/default'
+import { StatusBar } from 'react-native'
 
 const App = () => {
+  const [isFontLoaded] = useFonts({
+    Roboto_400Regular,
+    Roboto_700Bold,
+    Baloo2_700Bold,
+  })
+
+  if (!isFontLoaded) {
+    return null
+  }
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <ThemeProvider theme={defaultTheme}>
+      <StatusBar
+        barStyle="light-content"
+        backgroundColor="transparent"
+        translucent
+      />
+    </ThemeProvider>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-})
 
 export default registerRootComponent(App)
