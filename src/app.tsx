@@ -1,4 +1,5 @@
 import 'react-native-gesture-handler'
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context'
 import { registerRootComponent } from 'expo'
 import { useFonts } from 'expo-font'
 import { Roboto_400Regular, Roboto_700Bold } from '@expo-google-fonts/roboto'
@@ -20,14 +21,18 @@ const App = () => {
   }
 
   return (
-    <ThemeProvider theme={defaultTheme}>
-      <StatusBar
-        barStyle="light-content"
-        backgroundColor="transparent"
-        translucent
-      />
-      <StackRouter />
-    </ThemeProvider>
+    <SafeAreaProvider>
+      <ThemeProvider theme={defaultTheme}>
+        <StatusBar
+          barStyle="light-content"
+          backgroundColor={defaultTheme.Colors.gray100}
+          translucent
+        />
+        <SafeAreaView style={{ flex: 1 }}>
+          <StackRouter />
+        </SafeAreaView>
+      </ThemeProvider>
+    </SafeAreaProvider>
   )
 }
 

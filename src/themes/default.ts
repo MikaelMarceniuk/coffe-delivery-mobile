@@ -20,60 +20,25 @@ const defaultTheme = {
     redLight: '#F2DFD8',
   },
   Typography: {
-    BalloXl: {
-      fontSize: '36px',
-      lineHeight: '130%',
-      fontWeight: 'Baloo2_700Bold',
+    Ballo2Bold: 'Baloo2_700Bold',
+    RobotoRegular: 'Roboto_400Regular',
+    RobotoBold: 'Roboto_700Bold',
+  },
+  Sizes: {
+    Ballo: {
+      Xl: 36,
+      Lg: 24,
+      Md: 20,
+      Sm: 16,
+      Xs: 14,
     },
-    BalloLg: {
-      fontSize: '24px',
-      lineHeight: '130%',
-      fontWeight: 'Baloo2_700Bold',
-    },
-    BalloMd: {
-      fontSize: '20px',
-      lineHeight: '130%',
-      fontWeight: 'Baloo2_700Bold',
-    },
-    BalloSm: {
-      fontSize: '16px',
-      lineHeight: '130%',
-      fontWeight: 'Baloo2_700Bold',
-    },
-    BalloXs: {
-      fontSize: '14px',
-      lineHeight: '130%',
-      fontWeight: 'Baloo2_700Bold',
-    },
-    RobotoLg: {
-      fontSize: '20px',
-      lineHeight: '130%',
-      fontWeight: 'Roboto_400Regular',
-    },
-    RobotoMd: {
-      fontSize: '16px',
-      lineHeight: '130%',
-      fontWeight: 'Roboto_400Regular',
-    },
-    RobotoSm: {
-      fontSize: '14px',
-      lineHeight: '130%',
-      fontWeight: 'Roboto_400Regular',
-    },
-    RobotoXs: {
-      fontSize: '12px',
-      lineHeight: '130%',
-      fontWeight: 'Roboto_400Regular',
-    },
-    RobotoTag: {
-      fontSize: '10px',
-      lineHeight: '130%',
-      fontWeight: 'Roboto_700Bold',
-    },
-    RobotoBtn: {
-      fontSize: '14px',
-      lineHeight: '160%',
-      fontWeight: 'Roboto_700Bold',
+    Roboto: {
+      Lg: 20,
+      Md: 16,
+      Sm: 14,
+      Xs: 12,
+      Tag: 10,
+      Btn: 14,
     },
   },
 }
