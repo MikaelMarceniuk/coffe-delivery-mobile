@@ -85,7 +85,7 @@ const CoffePriceValue = styled.Text`
   text-align: center;
   font-family: ${({ theme }) => theme.Typography.Ballo2Bold};
   font-size: ${({ theme }) => theme.Sizes.Ballo.Lg}px;
-  color: ${({ theme }) => theme.Colors.yellow};
+  color: ${({ theme }) => theme.Colors.yellowDark};
 `
 
 type Props = { category: string; coffe: Coffe }
