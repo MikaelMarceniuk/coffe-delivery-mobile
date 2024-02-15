@@ -1,9 +1,25 @@
 import styled from 'styled-components/native'
 import Coffe from '../@types/Coffe'
+import { useAssets } from 'expo-asset'
+import { Image } from 'react-native'
+import getCoffeImage from '../utils/getCoffeImage'
 
 const Container = styled.TouchableOpacity`
+  height: 300px;
+
+  align-items: center;
+`
+
+const CoffeImageContainer = styled.View`
+  position: absolute;
+  z-index: 1;
+`
+
+const Content = styled.View`
   width: 208px;
   height: 262px;
+  margin-top: 25px;
+  padding: 80px 10px 10px 10px;
 
   justify-content: space-around;
   align-items: center;
@@ -31,7 +47,6 @@ const CategoryTagText = styled.Text`
 `
 
 const CoffeInfoContainer = styled.View`
-  width: 176px;
   height: 66px;
 `
 
@@ -76,21 +91,31 @@ const CoffePriceValue = styled.Text`
 type Props = { category: string; coffe: Coffe }
 
 const CoffeShowcaseItem: React.FC<Props> = ({ category, coffe }) => {
+  const [assets, error] = useAssets([getCoffeImage(coffe.img)])
+
   return (
     <Container>
-      <CategoryTagContainer>
-        <CategoryTagText>{category}</CategoryTagText>
-      </CategoryTagContainer>
+      {assets && (
+        <CoffeImageContainer>
+          <Image source={assets[0]} />
+        </CoffeImageContainer>
+      )}
 
-      <CoffeInfoContainer>
-        <CoffeInfoName>{coffe.name}</CoffeInfoName>
-        <CoffeInfoDescription>{coffe.description}</CoffeInfoDescription>
-      </CoffeInfoContainer>
+      <Content>
+        <CategoryTagContainer>
+          <CategoryTagText>{category}</CategoryTagText>
+        </CategoryTagContainer>
 
-      <CoffePriceContainer>
-        <CoffePriceCurrency>{coffe.currency}</CoffePriceCurrency>
-        <CoffePriceValue>{coffe.price}</CoffePriceValue>
-      </CoffePriceContainer>
+        <CoffeInfoContainer>
+          <CoffeInfoName>{coffe.name}</CoffeInfoName>
+          <CoffeInfoDescription>{coffe.description}</CoffeInfoDescription>
+        </CoffeInfoContainer>
+
+        <CoffePriceContainer>
+          <CoffePriceCurrency>{coffe.currency}</CoffePriceCurrency>
+          <CoffePriceValue>{coffe.price}</CoffePriceValue>
+        </CoffePriceContainer>
+      </Content>
     </Container>
   )
 }

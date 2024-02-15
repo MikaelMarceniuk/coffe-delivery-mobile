@@ -70,7 +70,7 @@ const CoffeShowcaseList: React.FC = () => {
         (_item, i) => i * CoffeItemSize + CoffeItemOffset
       )}
       contentContainerStyle={{
-        height: 262,
+        height: 300,
         alignItems: 'center',
       }}
       scrollEventThrottle={16}
