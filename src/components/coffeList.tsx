@@ -2,6 +2,8 @@ import { FlatList, View, Text } from 'react-native'
 import styled from 'styled-components/native'
 import CoffesMock from '../mocks/coffes.json'
 import CoffeListFilters from './coffeListFilters'
+import CoffeListItem from './coffeListItem'
+import Coffe from '../@types/Coffe'
 
 const Container = styled.View`
   flex: 1;
@@ -30,8 +32,14 @@ const CoffeList: React.FC = () => {
         data={CoffesMock}
         keyExtractor={(_item, index) => index.toString()}
         renderItem={({ item }) => (
-          <View>
+          <View style={{ marginTop: 20 }}>
             <SectionTitle>{item.category}</SectionTitle>
+
+            <FlatList
+              data={item.products}
+              renderItem={({ item }) => <CoffeListItem {...(item as Coffe)} />}
+              keyExtractor={({ id }) => id.toString()}
+            />
           </View>
         )}
       />
