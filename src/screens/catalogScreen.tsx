@@ -2,8 +2,10 @@ import styled, { useTheme } from 'styled-components/native'
 import Navbar from '../components/navbar'
 import SearchInput from '../components/searchInput'
 import CoffeShowcaseList from '../components/coffeShowcaseList'
+import CoffeList from '../components/coffeList'
+import { View } from 'react-native'
 
-const Container = styled.View`
+const Container = styled.ScrollView`
   flex: 1;
 
   background-color: ${({ theme }) => theme.Colors.white};
@@ -20,8 +22,7 @@ const ImageBg = styled.ImageBackground`
 `
 
 const IntroContainer = styled.View`
-  width: 310px;
-  margin: 20px auto 25px;
+  padding: 20px;
 
   gap: 16px;
 `
@@ -44,6 +45,7 @@ const CatalogScreen: React.FC = () => {
       </IntroContainer>
 
       <CoffeShowcaseList />
+      <CoffeList />
     </Container>
   )
 }

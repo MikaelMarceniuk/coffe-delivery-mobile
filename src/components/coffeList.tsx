@@ -6,6 +6,8 @@ import CoffeListItem from './coffeListItem'
 import Coffe from '../@types/Coffe'
 
 const Container = styled.View`
+  padding: 20px;
+
   flex: 1;
 `
 

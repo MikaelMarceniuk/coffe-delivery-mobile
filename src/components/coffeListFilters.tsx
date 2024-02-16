@@ -10,6 +10,7 @@ const Title = styled.Text`
 
 const TagContainer = styled.View`
   padding: 6px 12px;
+  margin-right: 8px;
 
   border: 1px solid;
   border-color: ${({ theme }) => theme.Colors.purple};
