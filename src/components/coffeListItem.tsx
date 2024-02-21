@@ -6,15 +6,10 @@ import getCoffeImage from '../utils/getCoffeImage'
 import { StackNavigatorRoutesProps } from '../router';
 
 const Container = styled.TouchableOpacity`
-  width: 310px;
-  height: 140px;
-  margin-top: 20px;
-
-  justify-content: flex-end;
-`
-
-const Content = styled.View`
   height: 120px;
+  margin-top: 40px;
+  padding-left: 10px;
+  padding-right: 40px;
 
   border-top-left-radius: 6px;
   border-bottom-right-radius: 6px;
@@ -22,6 +17,7 @@ const Content = styled.View`
   border-bottom-left-radius: 36px;
 
   flex-direction: row;
+  gap: 10px;
 
   background-color: ${({ theme }) => theme.Colors.gray700};
 `
@@ -40,7 +36,7 @@ const Image = styled.Image`
 `
 
 const InformationContainer = styled.View`
-  width: 214px;
+  width: 80%;
   padding: 10px;
 
   justify-content: space-evenly;
@@ -83,20 +79,18 @@ const CoffeListItem: React.FC<Coffe> = (coffe) => {
 
   return (
     <Container onPress={() => handleOnPress()}>
-      <Content>
-        <ImageContainer>
-          {assets && <Image source={assets[0]} />}
-        </ImageContainer>
+      <ImageContainer>
+        {assets && <Image source={assets[0]} />}
+      </ImageContainer>
 
-        <InformationContainer>
-          <CoffeName>{coffe.name}</CoffeName>
-          <CoffeDescription>{coffe.description}</CoffeDescription>
-          <CoffePriceContainer>
-            <CoffePriceCurrency>{coffe.currency}</CoffePriceCurrency>
-            <CoffePriceValue>{coffe.price}</CoffePriceValue>
-          </CoffePriceContainer>
-        </InformationContainer>
-      </Content>
+      <InformationContainer>
+        <CoffeName>{coffe.name}</CoffeName>
+        <CoffeDescription>{coffe.description}</CoffeDescription>
+        <CoffePriceContainer>
+          <CoffePriceCurrency>{coffe.currency}</CoffePriceCurrency>
+          <CoffePriceValue>{coffe.price}</CoffePriceValue>
+        </CoffePriceContainer>
+      </InformationContainer>
     </Container>
   )
 }
