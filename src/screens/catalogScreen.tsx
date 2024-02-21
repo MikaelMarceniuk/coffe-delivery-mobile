@@ -34,6 +34,12 @@ const Intro = styled.Text`
   color: ${({ theme }) => theme.Colors.white};
 `
 
+const ListContainer = styled.View`
+  padding: 20px;
+
+  gap: 16px;
+`
+
 type Props = StackScreenProps<StackNavigatorScreens, 'catalog'>;
 
 const CatalogScreen: React.FC<Props> = () => {
@@ -48,7 +54,9 @@ const CatalogScreen: React.FC<Props> = () => {
       </IntroContainer>
 
       <CoffeShowcaseList />
-      <CoffeList />
+      <ListContainer>
+        <CoffeList />
+      </ListContainer>
     </Container>
   )
 }
