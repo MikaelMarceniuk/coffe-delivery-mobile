@@ -1,21 +1,49 @@
 import { NavigationContainer } from '@react-navigation/native'
-import { createStackNavigator } from '@react-navigation/stack'
+import { StackNavigationProp, createStackNavigator } from '@react-navigation/stack'
+import Coffe from './@types/Coffe'
 import CatalogScreen from './screens/catalogScreen'
+import ProductScreen from './screens/productScreen'
+import PurchaseCompletedScreen from './screens/purchaseCompletedScreen'
+import ShoppingCartScreen from './screens/shoppingCartScreen'
 
-const Stack = createStackNavigator()
+export type StackNavigatorScreens = {
+  catalog: undefined
+  product: { coffe: Coffe }
+  shoppingCart: undefined
+  purchaseCompleted: undefined
+}
+
+export type StackNavigatorRoutesProps = StackNavigationProp<StackNavigatorScreens>
+
+const { Navigator, Screen } = createStackNavigator<StackNavigatorScreens>()
 
 const StackRouter = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator
-        initialRouteName="Catalog"
-        screenOptions={{ header: () => null }}
+      <Navigator
+        initialRouteName="catalog"
+        screenOptions={{ headerShown: false }}
       >
-        <Stack.Screen
-          name="Catalog"
+        <Screen
+          name="catalog"
           component={CatalogScreen}
         />
-      </Stack.Navigator>
+
+        <Screen
+          name="product"
+          component={ProductScreen}
+        />
+
+        <Screen
+          name="purchaseCompleted"
+          component={PurchaseCompletedScreen}
+        />
+
+        <Screen
+          name="shoppingCart"
+          component={ShoppingCartScreen}
+        />
+      </Navigator>
     </NavigationContainer>
   )
 }

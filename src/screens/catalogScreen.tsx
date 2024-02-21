@@ -3,7 +3,8 @@ import Navbar from '../components/navbar'
 import SearchInput from '../components/searchInput'
 import CoffeShowcaseList from '../components/coffeShowcaseList'
 import CoffeList from '../components/coffeList'
-import { View } from 'react-native'
+import { StackScreenProps } from '@react-navigation/stack'
+import { StackNavigatorScreens } from '../router'
 
 const Container = styled.ScrollView`
   flex: 1;
@@ -33,7 +34,9 @@ const Intro = styled.Text`
   color: ${({ theme }) => theme.Colors.white};
 `
 
-const CatalogScreen: React.FC = () => {
+type Props = StackScreenProps<StackNavigatorScreens, 'catalog'>;
+
+const CatalogScreen: React.FC<Props> = () => {
   return (
     <Container>
       <ImageBg />

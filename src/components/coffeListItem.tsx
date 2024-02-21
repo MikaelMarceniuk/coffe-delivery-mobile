@@ -1,7 +1,9 @@
 import { useAssets } from 'expo-asset'
+import { useNavigation } from '@react-navigation/native';
 import styled from 'styled-components/native'
 import Coffe from '../@types/Coffe'
 import getCoffeImage from '../utils/getCoffeImage'
+import { StackNavigatorRoutesProps } from '../router';
 
 const Container = styled.TouchableOpacity`
   width: 310px;
@@ -75,9 +77,12 @@ const CoffePriceValue = styled.Text`
 
 const CoffeListItem: React.FC<Coffe> = (coffe) => {
   const [assets, error] = useAssets([getCoffeImage(coffe.img)])
+  const navigator = useNavigation<StackNavigatorRoutesProps>()
+
+  const handleOnPress = () => navigator.push('product', { coffe })
 
   return (
-    <Container>
+    <Container onPress={() => handleOnPress()}>
       <Content>
         <ImageContainer>
           {assets && <Image source={assets[0]} />}

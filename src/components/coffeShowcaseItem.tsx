@@ -1,8 +1,10 @@
+import { Image } from 'react-native'
+import { useNavigation } from '@react-navigation/native';
 import styled from 'styled-components/native'
 import Coffe from '../@types/Coffe'
 import { useAssets } from 'expo-asset'
-import { Image } from 'react-native'
 import getCoffeImage from '../utils/getCoffeImage'
+import { StackNavigatorRoutesProps } from '../router';
 
 const Container = styled.TouchableOpacity`
   height: 300px;
@@ -92,9 +94,10 @@ type Props = { category: string; coffe: Coffe }
 
 const CoffeShowcaseItem: React.FC<Props> = ({ category, coffe }) => {
   const [assets, error] = useAssets([getCoffeImage(coffe.img)])
+  const navigator = useNavigation<StackNavigatorRoutesProps>()
 
   return (
-    <Container>
+    <Container onPress={() => navigator.push('product', { coffe })}>
       {assets && (
         <CoffeImageContainer>
           <Image source={assets[0]} />
